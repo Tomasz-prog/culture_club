@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="{% static 'serial/serial_style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title %}add serial{% endblock %}
+
+{% block content %}
+<header>
+    <div>
+        <a href="/serial/serial_main">Powrót</a>
+    </div>
+    <br><br>
+</header>
+
+<h2>Dodawanie serialu</h2>
+<form method="post">
+      {% csrf_token %}
+        {{ form }}
+    <input type="submit" value="Wyślij">
+</form>
+{% endblock %}

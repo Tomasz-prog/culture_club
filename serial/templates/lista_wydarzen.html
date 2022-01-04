@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="{% static 'serial/serial_style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title %}lista wydarzeń{% endblock %}
+
+{% block content %}
+<header>
+    <div>
+        <a href="/wydarzenia/wydarzenia_main">Powrót</a>
+        <a class='filtr' href="{% url 'wydarzenia:lista_wydarzen_filtr_prywatne' %}">Prywatne</a>
+        <a class='filtr' href="{% url 'wydarzenia:lista_wydarzen_filtr_sluzbowe' %}">Służbowe</a>
+        <a class='filtr' href="{% url 'wydarzenia:lista_wydarzen_filtr_programowanie' %}">Programowanie</a>
+    </div>
+    <br><br>
+</header>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Lp</th>
+      <th scope="col">Event</th>
+      <th scope="col">Data wydarzenia</th>
+      <th scope="col">Osoby</th>
+      <th scope="col">type</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for wydarzenie in wydarzenia %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ wydarzenie.title }}</td>
+        <td>{{ wydarzenie.data_wydarzenia }}</td>
+        <td>{{ wydarzenie.osoby }}</td>
+        <td>{{ wydarzenie.get_rodzaj_display }}</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{{ value }}
+
+{% endblock %}

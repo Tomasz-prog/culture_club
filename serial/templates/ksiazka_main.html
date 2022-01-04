@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="{% static 'serial/serial_style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title %}serial{% endblock %}
+
+{% block content %}
+
+<header>
+    <div>
+        <a href="lista_seriali">Lista Książek</a>
+        <a href="add_serial">Dodaj książkę</a>
+        <a href="lista_seriali.html">Edytuj ksiażkę</a>
+        <a href="lista_seriali.html">Usuń książkę</a>
+    </div>
+</header>
+<br>
+ Strona główna seriali
+{% endblock %}

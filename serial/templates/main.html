@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}{% block styles %}
+<link href="{% static 'serial/serial_style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title %}main{% endblock %}
+
+{% block content %}
+<header>
+    <div>
+        <a href="{% url 'serial:serial_main' %}">Seriale</a>
+        <a href="{% url 'film:film_main' %}">Film</a>
+        <a href="#">Książka</a>
+        <a href="{% url 'wydarzenia:wydarzenia_main' %}">Wydarzenia</a>
+    </div>
+</header>
+{% endblock %}
